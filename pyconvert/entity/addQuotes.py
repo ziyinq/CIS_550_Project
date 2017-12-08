@@ -6,70 +6,64 @@ df = pd.read_csv('../../data_convert/entity/songAttributes_header.csv')
 
 for index,row in df.iterrows():
     data = {}
+    myid = row["id"]
+    Song = row["Song"]
     try:
-        myid = "\"" + row["id"] + "\""
+        acousticness = "\"" + str(row["acousticness"]) + "\""
     except TypeError:
-        myid = row["id"]
+        acousticness = str(row["acousticness"])
     try:
-        acousticness = "\"" + row["acousticness"] + "\""
+        danceability = "\"" + str(row["danceability"]) + "\""
     except TypeError:
-        acousticness = row["acousticness"]
+        danceability = str(row["danceability"])
     try:
-        danceability = "\"" + row["danceability"] + "\""
+        duration_ms = "\"" + str(row["duration_ms"]) + "\""
     except TypeError:
-        danceability = row["danceability"]
+        duration_ms = str(row["duration_ms"])
     try:
-        duration_ms = "\"" + row["duration_ms"] + "\""
+        energy = "\"" + str(row["energy"]) + "\""
     except TypeError:
-        duration_ms = row["duration_ms"]
+        energy = str(row["energy"])
     try:
-        energy = "\"" + row["energy"] + "\""
+        instrumentalness = "\"" + str(row["instrumentalness"]) + "\""
     except TypeError:
-        energy = row["energy"]
+        instrumentalness= str(row["instrumentalness"])
     try:
-        instrumentalness = "\"" + row["instrumentalness"] + "\""
+        key = "\"" + str(row["key"]) + "\""
     except TypeError:
-        instrumentalness= row["instrumentalness"]
+        key= str(row["key"])
     try:
-        key = "\"" + row["key"] + "\""
+        liveness = "\"" + str(row["liveness"]) + "\""
     except TypeError:
-        key= row["key"]
+        liveness= str(row["liveness"])
     try:
-        liveness = "\"" + row["liveness"] + "\""
+        loudness = "\"" + str(row["loudness"]) + "\""
     except TypeError:
-        liveness= row["liveness"]
+        loudness= str(row["loudness"])
     try:
-        loudness = "\"" + row["loudness"] + "\""
+        mode = "\"" + str(row["mode"]) + "\""
     except TypeError:
-        loudness= row["loudness"]
+        mode= str(row["mode"])
     try:
-        mode = "\"" + row["mode"] + "\""
+        speechiness = "\"" + str(row["speechiness"]) + "\""
     except TypeError:
-        mode= row["mode"]
+        speechiness= str(row["speechiness"])
     try:
-        speechiness = "\"" + row["speechiness"] + "\""
+        tempo = "\"" + str(row["tempo"]) + "\""
     except TypeError:
-        speechiness= row["speechiness"]
+        tempo= str(row["tempo"])
     try:
-        tempo = "\"" + row["tempo"] + "\""
+        time_signature = "\"" + str(row["time_signature"]) + "\""
     except TypeError:
-        tempo= row["tempo"]
+        time_signature= str(row["time_signature"])
     try:
-        time_signature = "\"" + row["time_signature"] + "\""
+        valence = "\"" + str(row["valence"]) + "\""
     except TypeError:
-        time_signature= row["time_signature"]
+        valence= str(row["valence"])
     try:
-        valence = "\"" + row["valence"] + "\""
+        Year = "\"" + str(row["Year"]) + "\""
     except TypeError:
-        valence= row["valence"]
-    try:
-        Song = "\"" + row["Song"] + "\""
-    except TypeError:
-        Song= row["Song"]
-    try:
-        Year = "\"" + row["Year"] + "\""
-    except TypeError:
-        Year= row["Year"]
+        Year= str(row["Year"])
 
     data["id"] = myid
     data["acousticness"] = acousticness
@@ -88,4 +82,4 @@ for index,row in df.iterrows():
     data["Song"] = Song
     data["Year"] = Year
     relIn = relIn.append(data, ignore_index = True)
-relIn.to_csv('test.csv', index=False, encoding='utf-8', header=True)
+relIn.to_csv('test.csv', index=False, encoding='utf-8', header=False)
