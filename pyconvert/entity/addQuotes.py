@@ -82,4 +82,4 @@ for index,row in df.iterrows():
     data["Song"] = Song
     data["Year"] = Year
     relIn = relIn.append(data, ignore_index = True)
-relIn.to_csv('test.csv', index=False, encoding='utf-8', header=False)
+relIn.to_csv('test.csv', index=False, encoding='utf-8', header=True)
